@@ -7,4 +7,7 @@ import javax.persistence.*;
 @Table(name = "TBL_FUNCIONARIO")
 public class Funcionario extends Pessoa{
 
+    @Column(length = 100, nullable = true)
+    String especialidade;
+
 }

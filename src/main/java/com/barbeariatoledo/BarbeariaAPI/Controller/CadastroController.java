@@ -1,6 +1,7 @@
 package com.barbeariatoledo.BarbeariaAPI.Controller;
 
 import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Cliente;
+import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Funcionario;
 
 import com.barbeariatoledo.BarbeariaAPI.Service.CadastroService;
 
@@ -22,6 +23,18 @@ CadastroService cadastroService;
     public ResponseEntity<String> cadastrarCliente(@RequestBody Cliente cliente){
         try{
             cadastroService.cadastrarCliente(cliente);
+            return ResponseEntity.status(201).build();
+        }
+        catch(Exception e){
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+
+    }
+
+    @PostMapping("/funcionario")
+    public ResponseEntity<String> cadastrarFuncionario(@RequestBody Funcionario funcionario){
+        try{
+            cadastroService.cadastrarFuncionario(funcionario);
             return ResponseEntity.status(201).build();
         }
         catch(Exception e){
