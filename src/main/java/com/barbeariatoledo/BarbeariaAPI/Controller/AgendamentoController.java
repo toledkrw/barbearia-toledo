@@ -6,10 +6,7 @@ import com.barbeariatoledo.BarbeariaAPI.Service.AgendamentoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.http.ResponseEntity;
 
@@ -20,7 +17,7 @@ public class AgendamentoController {
     AgendamentoService agendamentoService;
 
     @PostMapping("/novo")
-    public ResponseEntity<String> cadastrarCliente(@RequestBody AgendamentoDTO agendamentoDTO){
+    public ResponseEntity<String> cadastrarAgendamento(@RequestBody AgendamentoDTO agendamentoDTO){
         try{
             agendamentoService.cadastrarAgendamento(agendamentoDTO);
             return ResponseEntity.status(201).build();
