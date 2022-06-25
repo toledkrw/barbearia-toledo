@@ -1,9 +1,15 @@
 package com.barbeariatoledo.BarbeariaAPI.Service;
 
+import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Agendamento;
 import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Cliente;
 import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Funcionario;
+import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Servico;
 import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Cliente.ClienteDAO;
+import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Cliente.ClienteDTO;
 import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Funcionario.FuncionarioDAO;
+import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Funcionario.FuncionarioDTO;
+import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Servico.ServicoDAO;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +19,21 @@ public class CadastroService {
     ClienteDAO clienteDAO;
     @Autowired
     FuncionarioDAO funcionarioDAO;
+    @Autowired
+    ServicoDAO servicoDAO;
 
-    public void cadastrarCliente(Cliente cliente) {
+    @Autowired
+    ModelMapper modelMapper;
+
+    public void cadastrarCliente(ClienteDTO clienteDTO) {
+        Cliente cliente = modelMapper.map(clienteDTO, Cliente.class);
         clienteDAO.save(cliente);
     }
 
-    public void cadastrarFuncionario(Funcionario funcionario) {
+    public void cadastrarFuncionario(FuncionarioDTO funcionarioDTO) {
+        Funcionario funcionario = modelMapper.map(funcionarioDTO, Funcionario.class);
         funcionarioDAO.save(funcionario);
     }
+
+    public void cadastrarServico(Servico servico) {servicoDAO.save(servico); }
 }

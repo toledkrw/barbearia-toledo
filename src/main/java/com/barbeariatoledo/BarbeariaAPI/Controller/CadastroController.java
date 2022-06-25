@@ -3,6 +3,9 @@ package com.barbeariatoledo.BarbeariaAPI.Controller;
 import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Cliente;
 import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Funcionario;
 
+import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Servico;
+import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Cliente.ClienteDTO;
+import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Funcionario.FuncionarioDTO;
 import com.barbeariatoledo.BarbeariaAPI.Service.CadastroService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +23,9 @@ public class CadastroController {
 CadastroService cadastroService;
 
     @PostMapping("/cliente")
-    public ResponseEntity<String> cadastrarCliente(@RequestBody Cliente cliente){
+    public ResponseEntity<String> cadastrarCliente(@RequestBody ClienteDTO clienteDTO){
         try{
-            cadastroService.cadastrarCliente(cliente);
+            cadastroService.cadastrarCliente(clienteDTO);
             return ResponseEntity.status(201).build();
         }
         catch(Exception e){
@@ -32,9 +35,21 @@ CadastroService cadastroService;
     }
 
     @PostMapping("/funcionario")
-    public ResponseEntity<String> cadastrarFuncionario(@RequestBody Funcionario funcionario){
+    public ResponseEntity<String> cadastrarFuncionario(@RequestBody FuncionarioDTO funcionarioDTO){
         try{
-            cadastroService.cadastrarFuncionario(funcionario);
+            cadastroService.cadastrarFuncionario(funcionarioDTO);
+            return ResponseEntity.status(201).build();
+        }
+        catch(Exception e){
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+
+    }
+
+    @PostMapping("/servico")
+    public ResponseEntity<String> cadastrarFuncionario(@RequestBody Servico servico){
+        try{
+            cadastroService.cadastrarServico(servico);
             return ResponseEntity.status(201).build();
         }
         catch(Exception e){
