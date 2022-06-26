@@ -1,11 +1,8 @@
 package com.barbeariatoledo.BarbeariaAPI.Controller;
 
-import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Cliente;
-import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Funcionario;
-
 import com.barbeariatoledo.BarbeariaAPI.Model.Entities.Servico;
 import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Cliente.ClienteDTO;
-import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Funcionario.FuncionarioDTO;
+import com.barbeariatoledo.BarbeariaAPI.Model.Repositories.Funcionario.CreateFuncionarioDTO;
 import com.barbeariatoledo.BarbeariaAPI.Service.CadastroService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +32,7 @@ CadastroService cadastroService;
     }
 
     @PostMapping("/funcionario")
-    public ResponseEntity<String> cadastrarFuncionario(@RequestBody FuncionarioDTO funcionarioDTO){
+    public ResponseEntity<String> cadastrarFuncionario(@RequestBody CreateFuncionarioDTO funcionarioDTO){
         try{
             cadastroService.cadastrarFuncionario(funcionarioDTO);
             return ResponseEntity.status(201).build();

@@ -1,11 +1,15 @@
 package com.barbeariatoledo.BarbeariaAPI.Model.Entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Data
 @NoArgsConstructor
@@ -18,10 +22,13 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Date data;
-
     @Column(length = 256, nullable = false)
     private String descricao;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate data;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime hora;
 
     @ManyToOne
     private Servico servico;
