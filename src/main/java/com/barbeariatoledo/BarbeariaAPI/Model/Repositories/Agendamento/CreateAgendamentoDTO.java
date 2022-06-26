@@ -8,19 +8,21 @@ import javax.validation.constraints.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AgendamentoDTO {
-    private Integer id;
-
+public class CreateAgendamentoDTO {
     @NotNull
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    private Date data;
-
     private String descricao;
+
+    @NotNull @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate data;
+    @NotNull @JsonFormat(pattern = "HH:mm")
+    private LocalTime hora;
 
     @NotNull
     private Integer servico, cliente, funcionario;
