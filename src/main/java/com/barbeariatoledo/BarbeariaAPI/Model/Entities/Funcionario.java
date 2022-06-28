@@ -17,4 +17,7 @@ public class Funcionario extends Pessoa{
     @OneToMany(mappedBy = "funcionario")
     private List<Agendamento> agendamentos;
 
+//    @OneToOne
+//    private Login login;
+
 }
