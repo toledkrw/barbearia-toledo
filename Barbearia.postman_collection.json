@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "99844f32-8107-4c88-9d6f-776aea920e81",
+		"name": "Barbearia",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\":\"Tobisvaldo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/api/cadastro/cliente",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"cadastro",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Funcionario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\":\"Josnisley\",\r\n    \"especialidade\":\"barba\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/api/cadastro/funcionario",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"cadastro",
+						"funcionario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Serviço",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\":\"Fazer barba\",\r\n    \"preco\": 17.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/api/cadastro/servico",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"cadastro",
+						"servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agendamento de serviço",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\":\"26/06/2022\",\r\n    \"hora\":\"22:26\",\r\n    \"descricao\":\"Corte brabo na barba\",\r\n    \"servico\":1,\r\n    \"cliente\":1,\r\n    \"funcionario\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8085/api/agendamento/novo",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"agendamento",
+						"novo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exibir Agenda",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/api/agendamento/exibir-agenda",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"agendamento",
+						"exibir-agenda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exibir Agenda Dia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/api/agendamento/exibir-agenda/26-06-2022",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"agendamento",
+						"exibir-agenda",
+						"26-06-2022"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Relatório: Total de agendas no dia",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8085/api/relatorio/agendas/total-dia",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"relatorio",
+						"agendas",
+						"total-dia"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
