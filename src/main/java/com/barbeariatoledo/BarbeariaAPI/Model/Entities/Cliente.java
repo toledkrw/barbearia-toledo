@@ -14,7 +14,4 @@ public class Cliente extends Pessoa{
     @OneToMany(mappedBy = "cliente",cascade = {})
     private List<Agendamento> agendamentos;
 
-//    @OneToOne
-//    private Login login;
-
 }

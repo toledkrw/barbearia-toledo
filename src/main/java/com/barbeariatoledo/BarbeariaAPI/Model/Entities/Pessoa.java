@@ -18,5 +18,4 @@ public abstract class Pessoa {
 
     @Column(length = 100, nullable = false)
     private String nome;
-
 }
